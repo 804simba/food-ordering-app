@@ -1,14 +1,13 @@
 package com.simba.domain.valueobject;
 
-import lombok.Getter;
-
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.Objects;
 
-@Getter
 public class MoneyVO {
     private final BigDecimal amount;
+
+    public static final MoneyVO ZERO = new MoneyVO(BigDecimal.ZERO);
 
     public MoneyVO(BigDecimal amount) {
         this.amount = amount;
@@ -23,7 +22,19 @@ public class MoneyVO {
     }
 
     public MoneyVO add(MoneyVO money) {
-        return new MoneyVO(this.amount.add(money.getAmount()));
+        return new MoneyVO(setScale(this.amount.add(money.getAmount())));
+    }
+
+    public MoneyVO subtract(MoneyVO money) {
+        return new MoneyVO(setScale(this.amount.subtract(money.getAmount())));
+    }
+
+    public MoneyVO multiply(int multiplier) {
+        return new MoneyVO(setScale(this.amount.multiply(new BigDecimal(multiplier))));
+    }
+
+    public BigDecimal getAmount() {
+        return amount;
     }
 
     @Override

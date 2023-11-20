@@ -2,9 +2,8 @@ package com.simba.domain.valueobject;
 
 import java.util.UUID;
 
-public class OrderIdVO extends BaseIdVO<UUID> {
-
-    public OrderIdVO(UUID value) {
+public class RestaurantIdVO extends BaseIdVO<UUID> {
+    public RestaurantIdVO(UUID value) {
         super(value);
     }
 }

@@ -1,23 +1,24 @@
 package com.simba.domain.valueobject;
 
-import lombok.Getter;
-
 import java.util.Objects;
 
-@Getter
-public abstract class BaseId<T> {
+public abstract class BaseIdVO<T> {
     private final T value;
 
-    protected BaseId(T value) {
+    protected BaseIdVO(T value) {
         this.value = value;
+    }
+
+    public T getValue() {
+        return value;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        BaseId<?> baseId = (BaseId<?>) o;
-        return Objects.equals(value, baseId.value);
+        BaseIdVO<?> baseIdVO = (BaseIdVO<?>) o;
+        return Objects.equals(value, baseIdVO.value);
     }
 
     @Override

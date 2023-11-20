@@ -22,7 +22,6 @@
 
     <properties>
         <maven-compiler-plugin.version>3.11.0</maven-compiler-plugin.version>
-        <lombok.version>1.18.30</lombok.version>
     </properties>
 
     <dependencyManagement>
@@ -56,11 +55,6 @@
                 <groupId>org.simba</groupId>
                 <artifactId>common-domain</artifactId>
                 <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.projectlombok</groupId>
-                <artifactId>lombok</artifactId>
-                <version>${lombok.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

@@ -9,6 +9,7 @@ import com.simba.order.service.domain.valueobject.TrackingIdVO;
 
 import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 public class Order extends AggregateRoot<OrderIdVO> {
     private final CustomerIdVO customerId;
@@ -55,6 +56,45 @@ public class Order extends AggregateRoot<OrderIdVO> {
         if (price == null || !price.isGreaterThanZero()) {
             throw new OrderDomainException("Total price must be greater than zero.");
         }
+    }
+
+    public void pay() {
+        if (orderStatus != OrderStatusVO.PENDING) {
+            throw new OrderDomainException("Order is not in correct state for payment operation.");
+        }
+        orderStatus = OrderStatusVO.PAID;
+    }
+
+    public void approve() {
+        if (orderStatus != OrderStatusVO.PAID) {
+            throw new OrderDomainException("Order is not in correct state for approval operation.");
+        }
+        orderStatus = OrderStatusVO.APPROVED;
+    }
+
+    public void initCancel(List<String> failureMessages) {
+        if (orderStatus != OrderStatusVO.PAID) {
+            throw new OrderDomainException("Order is not in correct state for initializing cancellation operation.");
+        }
+        orderStatus = OrderStatusVO.CANCELLING;
+        updateFailureMessages(failureMessages);
+    }
+
+    private void updateFailureMessages(List<String> failureMessages) {
+        if (this.failureMessages != null && failureMessages != null) {
+            this.failureMessages.addAll(failureMessages.stream().filter(message -> !message.isEmpty()).toList());
+        }
+        if (this.failureMessages == null) {
+            this.failureMessages = failureMessages;
+        }
+    }
+
+    public void cancel(List<String> failureMessages) {
+        if (!(orderStatus == OrderStatusVO.CANCELLED || orderStatus == OrderStatusVO.PENDING)) {
+            throw new OrderDomainException("Order is not in correct state for cancel operation.");
+        }
+        orderStatus = OrderStatusVO.CANCELLED;
+        updateFailureMessages(failureMessages);
     }
 
     private void validateInitialOrder() {

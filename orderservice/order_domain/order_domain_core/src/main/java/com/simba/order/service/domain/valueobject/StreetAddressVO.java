@@ -1,11 +1,8 @@
 package com.simba.order.service.domain.valueobject;
 
-import lombok.Getter;
-
 import java.util.Objects;
 import java.util.UUID;
 
-@Getter
 public class StreetAddressVO {
     private final UUID id;
     private final String street;
@@ -17,6 +14,22 @@ public class StreetAddressVO {
         this.street = street;
         this.postalCode = postalCode;
         this.city = city;
+    }
+
+    public UUID getId() {
+        return id;
+    }
+
+    public String getStreet() {
+        return street;
+    }
+
+    public String getPostalCode() {
+        return postalCode;
+    }
+
+    public String getCity() {
+        return city;
     }
 
     @Override

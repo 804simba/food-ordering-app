@@ -1,0 +1,11 @@
+Domain-Driven Design (DDD) is a software development approach that focuses on organizing a system's code into layers, each with a specific responsibility and purpose. In DDD, the architecture is typically organized into four layers:
+Domain Layer: This layer is responsible for representing concepts of the business, information about the business situation, and business rules that define the application's behavior. It is the heart of the business software and is where the business is expressed. The domain layer must not directly depend on any infrastructure framework
+
+Application Layer: This layer coordinates the interactions between the domain and infrastructure layers.
+It implements the use cases and workflows, and is responsible for the application logic. The application layer depends on the domain layer and other code within the application layer.
+
+Infrastructure Layer: This layer provides the necessary services and infrastructure for the application, such as persistence, messaging, and security. The infrastructure layer depends on the domain layer and other code within the infrastructure layer
+
+User Interface (UI) Layer: This layer is responsible for providing the interface for users to interact with the application The UI layer depends on the application layer and other code within the UI layer. The layered architecture in DDD helps to maintain the modularity and scalability of the system, as well as reduce the complexity of the overall design. The dependencies between layers are inward, meaning that higher-level layers can only depend on lower-level layers. This organization allows for better control of dependencies between layers and promotes separation of concerns, making the system easier to understand and maintain
+
+In Hexagonal architecture, there are two types of ports: Input and output ports, The input ports are the interfaces that are implemented in the domain layer, used by the clients of the domain layer, while the output ports are the interfaces that are implemented in the infrastructure layers like data access and messaging, and used by the domain layer to reach those services.

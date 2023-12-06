@@ -8,6 +8,16 @@ public class Product extends BaseEntity<ProductIdVO> {
     private String name;
     private MoneyVO price;
 
+    public Product(ProductIdVO productId) {
+        super.setId(productId);
+    }
+
+    public Product(ProductIdVO productId, String name, MoneyVO price) {
+        super.setId(productId);
+        this.name = name;
+        this.price = price;
+    }
+
     public String getName() {
         return name;
     }
@@ -16,8 +26,7 @@ public class Product extends BaseEntity<ProductIdVO> {
         return price;
     }
 
-    public Product(ProductIdVO productId, String name, MoneyVO price) {
-        super.setId(productId);
+    public void updateWithConfirmedNameAndPrice(String name, MoneyVO price) {
         this.name = name;
         this.price = price;
     }

@@ -3,6 +3,7 @@ package com.food.ordering.system.order.service.domain.mapper;
 import com.food.ordering.system.order.service.domain.dto.create.CreateOrderCommand;
 import com.food.ordering.system.order.service.domain.dto.create.CreateOrderResponse;
 import com.food.ordering.system.order.service.domain.dto.create.OrderAddress;
+import com.food.ordering.system.order.service.domain.dto.track.TrackOrderResponse;
 import com.simba.domain.valueobject.CustomerIdVO;
 import com.simba.domain.valueobject.MoneyVO;
 import com.simba.domain.valueobject.ProductIdVO;
@@ -23,7 +24,7 @@ public class OrderDataMapper {
 
     public Restaurant createOrderCommandToRestaurant(CreateOrderCommand createOrderCommand) {
         return Restaurant.Builder.builder()
-                .id(new RestaurantIdVO(createOrderCommand.getRestaurantId()))
+                .restaurantId(new RestaurantIdVO(createOrderCommand.getRestaurantId()))
                 .products(createOrderCommand.getItems().stream().map(orderItem ->
                         new Product(new ProductIdVO(orderItem.getProductId())))
                         .collect(Collectors.toList())
@@ -41,10 +42,19 @@ public class OrderDataMapper {
                 .build();
     }
 
-    public CreateOrderResponse orderToCreateOrderResponse(Order order) {
+    public TrackOrderResponse orderToTrackOrderResponse(Order order) {
+        return TrackOrderResponse.builder()
+                .orderTrackingId(order.getTrackingId().getValue())
+                .orderStatusVO(order.getOrderStatus())
+                .failureMessages(order.getFailureMessages())
+                .build();
+    }
+
+    public CreateOrderResponse orderToCreateOrderResponse(Order order, String message) {
         return CreateOrderResponse.builder()
                 .orderTrackingId(order.getTrackingId().getValue())
                 .orderStatus(order.getOrderStatus())
+                .message(message)
                 .build();
     }
 

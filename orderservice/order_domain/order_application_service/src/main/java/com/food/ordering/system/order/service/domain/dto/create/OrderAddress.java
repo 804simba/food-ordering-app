@@ -9,6 +9,11 @@ import lombok.Getter;
 @Getter
 @Builder
 @AllArgsConstructor
-public record OrderAddress(@NotNull @Max(value = 50) String street, @NotNull @Max(value = 50) String postalCode,
-                           @NotNull @Max(value = 50) String city) {
+public class OrderAddress {
+    @NotNull @Max(value = 50)
+    private String street;
+    @NotNull @Max(value = 50)
+    private String postalCode;
+    @NotNull @Max(value = 50)
+    private String city;
 }

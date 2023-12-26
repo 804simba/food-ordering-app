@@ -48,7 +48,7 @@ public class Order extends AggregateRoot<OrderIdVO> {
 
     private void validateItemPrice(OrderItem orderItem) {
         if (!orderItem.isPriceValid()) {
-            throw new OrderDomainException("Order item price is not valid at: NGN" + orderItem.getPrice());
+            throw new OrderDomainException("Order item price: is not valid for product");
         }
     }
 

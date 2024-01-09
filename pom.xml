@@ -18,6 +18,7 @@
     <modules>
         <module>orderservice</module>
         <module>common</module>
+        <module>infrastructure</module>
     </modules>
 
     <properties>

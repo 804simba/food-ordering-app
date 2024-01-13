@@ -5,16 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c11a501d-19ef-4cf8-89f9-4b39c2039a30" name="Changes" comment="made changes">
-      <change afterPath="$PROJECT_DIR$/infrastructure/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/infrastructure/docker-compose/.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/infrastructure/docker-compose/common.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/infrastructure/docker-compose/init_kafka.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/infrastructure/docker-compose/kafka_cluster.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/infrastructure/docker-compose/zookeeper.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/infrastructure/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,7 +134,7 @@
       <workItem from="1702541143320" duration="7770000" />
       <workItem from="1704472418004" duration="592000" />
       <workItem from="1704792223415" duration="787000" />
-      <workItem from="1704793222549" duration="2763000" />
+      <workItem from="1704793222549" duration="3717000" />
     </task>
     <task id="LOCAL-00001" summary="made changes">
       <created>1700498157846</created>

@@ -10,4 +10,31 @@
     </parent>
 
     <artifactId>kafka-producer</artifactId>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.simba</groupId>
+            <artifactId>kafka-model</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.simba</groupId>
+            <artifactId>kafka-config-data</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.simba</groupId>
+            <artifactId>order_domain_core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.simba</groupId>
+            <artifactId>common-domain</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.kafka</groupId>
+            <artifactId>spring-kafka</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.confluent</groupId>
+            <artifactId>kafka-avro-serializer</artifactId>
+        </dependency>
+    </dependencies>
 </project>
